@@ -406,14 +406,14 @@ public class CallNotifier extends Handler
                 mApplication.notificationMgr.updateInCallNotification();
                 break;
 
-            case VIBRATE_45_SEC:
-                vibrate(70, 0, 0);
-                sendEmptyMessageDelayed(VIBRATE_45_SEC, 60000);
-                break;
-
             case SUPP_SERVICE_NOTIFY:
                 if (DBG) log("Received Supplementary Notification");
                 onSuppServiceNotification((AsyncResult) msg.obj);
+                break;
+
+            case VIBRATE_45_SEC:
+                vibrate(70, 0, 0);
+                sendEmptyMessageDelayed(VIBRATE_45_SEC, 60000);
                 break;
 
             default:
@@ -1283,9 +1283,16 @@ public class CallNotifier extends Handler
                     PhoneNumberUtils.isLocalEmergencyNumber(number, mApplication);
             // Set the "type" to be displayed in the call log (see constants in CallLog.Calls)
             final int callLogType;
+            boolean rejectAsMissed = PhoneUtils.PhoneSettings.rejectedAsMissed(mApplication);
             if (c.isIncoming()) {
-                callLogType = (cause == Connection.DisconnectCause.INCOMING_MISSED ?
-                               Calls.MISSED_TYPE : Calls.INCOMING_TYPE);
+                if (!rejectAsMissed) {
+                        callLogType = (cause == Connection.DisconnectCause.INCOMING_MISSED ?
+                                Calls.MISSED_TYPE : Calls.INCOMING_TYPE);
+                } else {
+                callLogType = ( (cause == Connection.DisconnectCause.INCOMING_MISSED) ||
+                                (cause == Connection.DisconnectCause.INCOMING_REJECTED) ?
+                                Calls.MISSED_TYPE : Calls.INCOMING_TYPE);
+                }
             } else {
                 callLogType = Calls.OUTGOING_TYPE;
             }

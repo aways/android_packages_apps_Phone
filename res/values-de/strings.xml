@@ -16,7 +16,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="phoneAppLabel" product="tablet" msgid="8576272342240415145">"Mobilfunk"</string>
+    <string name="phoneAppLabel" product="tablet" msgid="8576272342240415145">"Mobile Daten"</string>
     <string name="phoneAppLabel" product="default" msgid="906161039445636857">"Telefon"</string>
     <string name="emergencyDialerIconLabel" msgid="7812140032168171053">"Notruf"</string>
     <string name="phoneIconLabel" msgid="2331230813161304895">"Telefon"</string>
@@ -155,7 +155,7 @@
     <string name="fw_get_in_vm_failed" msgid="8862896836093833973">"Die aktuellen Einstellungen der Weiterleitungsnummern konnten nicht abgerufen und gespeichert werden."\n"Möchten Sie trotzdem zum neuen Anbieter wechseln?"</string>
     <string name="no_change" msgid="3186040086622435212">"Es wurden keine Änderungen vorgenommen."</string>
     <string name="sum_voicemail_choose_provider" msgid="59911196126278922">"Mailbox-Dienst auswählen"</string>
-    <string name="voicemail_default" msgid="5902099213882352338">"Mein Mobilfunkanbieter"</string>
+    <string name="voicemail_default" msgid="5902099213882352338">"Mein Netzbetreiber"</string>
     <string name="mobile_networks" msgid="5540397602919106177">"Einstellungen für Mobilfunknetze"</string>
     <string name="label_available" msgid="1181658289009300430">"Verfügbare Netzwerke"</string>
     <string name="load_networks_progress" msgid="5230707536168902952">"Suche läuft..."</string>
@@ -366,7 +366,7 @@
     <string name="deleting_fdn_contact" msgid="5669163206349319969">"Zugelassene Rufnummer wird gelöscht..."</string>
     <string name="fdn_contact_deleted" msgid="7154162327112259569">"Zugelassene Rufnummer gelöscht"</string>
     <string name="pin2_invalid" msgid="5470854099230755944">"Die Anrufbegrenzung wurde nicht aktualisiert, weil Sie eine falsche PIN eingegeben haben."</string>
-    <string name="fdn_invalid_number" msgid="1494755047900009147">"Die Anrufbegrenzung wurde nicht aktualisiert, weil die Nummer maximal 20 Ziffern enthalten darf."</string>
+    <string name="fdn_invalid_number" msgid="1494755047900009147">"Die Anrufbegrenzung wurde nicht aktualisiert, da die Nummer maximal 20 Ziffern enthalten darf."</string>
     <string name="pin2_or_fdn_invalid" msgid="6025144083384701197">"FDN wurde nicht aktualisiert. PIN2 war ungültig oder die Telefonnummer wurde abgelehnt."</string>
     <string name="simContacts_emptyLoading" msgid="2203331234764498011">"SIM-Karte wird ausgelesen..."</string>
     <string name="simContacts_empty" msgid="5270660846489561932">"Keine Kontakte auf SIM-Karte"</string>
@@ -526,6 +526,8 @@
     <string name="voicemail_settings" msgid="72448049107749316">"Einrichtung"</string>
     <string name="voicemail_number_not_set" msgid="6724904736891087856">"&lt;Nicht festgelegt&gt;"</string>
     <string name="other_settings" msgid="3672912580359716394">"Sonstige Anrufeinstellungen"</string>
+    <string name="dialer_ui_settings_title">Wähltasten</string>
+    <string name="dialer_ui_settings_summary">Einstellungen für die Wähltasten</string>
     <string name="calling_via_template" msgid="4839419581866928142">"Anruf über <xliff:g id="PROVIDER_NAME">%s</xliff:g>"</string>
     <string name="contactPhoto" msgid="4713193418046639466">"Kontaktbild"</string>
     <string name="goPrivate" msgid="865837794424530980">"privat sprechen"</string>
@@ -634,8 +636,7 @@
     <string name="description_target_decline" msgid="4789834364389731957">"Ablehnen"</string>
     <string name="voicemail_notification_vibrate_when_title" msgid="8361970092063604886">"Vibration"</string>
     <string name="voicemail_notification_vibarte_when_dialog_title" msgid="5739583146522136440">"Vibration"</string>
-    <string name="voicemail_notification_ringtone_title" msgid="2609519527849101590">"Töne"</string>
-    <string name="default_notification_description" msgid="78174796906240970">"Standardklingelton (<xliff:g id="DEFAULT_SOUND_TITLE">%1$s</xliff:g>)"</string>
+    <string name="voicemail_notification_ringtone_title" msgid="2512535133814478358">"Klingelton"</string>
   <string-array name="voicemail_notification_vibrate_when_entries">
     <item msgid="468237575962916558">"Immer"</item>
     <item msgid="1595097872875714252">"Nur im Lautlos-Modus"</item>
@@ -644,38 +645,60 @@
     <string name="ringtone_title" msgid="6374978286202084684">"Klingelton"</string>
     <string name="vibrate_on_ring_title" msgid="9197564612065258960">"Beim Klingeln vibrieren"</string>
     <string name="dtmf_tone_enable_title" msgid="827601042915852989">"Wähltastentöne"</string>
-    <string name="preference_category_ringtone" msgid="5197960752529332721">"Klingelton &amp; Vibration"</string>
+    <string name="preference_category_ringtone" msgid="9007490591910078324">"Klingelton"</string>
 
-    <!-- **** CYANOGENMOD EDITS START **** -->
-
-    <!-- Dialer UI Settings -->
-    <string name="dialer_ui_settings_title">Wähltasten</string>
-    <string name="dialer_ui_settings_summary">Einstellungen für die Wähltasten</string>
+    <!-- Permission for notification-bar network toggle -->
+    <string name="perm_change_mobile_network">Netzmodus wechseln (2G/3G)</string>
+    <string name="perm_change_mobile_network_desc">Anwendungen mit dieser Berechtigung können jederzeit zwischen 2G- und 3G-Netz wechseln. 3G ist schneller, verbraucht aber mehr Akku und kann zusätzliche Kosten verursachen.</string>
 
     <!-- Advanced Settings -->
     <string name="advanced_setting">Erweiterte Einstellungen</string>
     <string name="vibrate_outgoing">Bei Annahme vibrieren</string>
     <string name="vibrate_call_waiting">Beim Anklopfen vibrieren</string>
     <string name="vibrate_hangup">Beim Auflegen vibrieren</string>
-    <string name="vibrate_45">Jede Minute vibrieren</string>
+    <string name="vibrate_45">Alle 45 Sekunden vibrieren</string>
     <string name="vibrate_45_sum">Während ausgehender Anrufe 15 Sekunden vor dem Ende jeder vollen Minute vibrieren</string>
+    <string name="show_ssn_label">Ereignis-Benachrichtigung</string>
+    <string name="show_ssn_summary">Benachrichtigungen für verschiedene Anrufereignisse, z.B. zu Weiterleitungsstatus, anzeigen</string>
 
     <!-- Noise suppression -->
-    <string name="noise_suppression_title">Lärmunterdrückung</string>
-    <string name="noise_suppression_summary">Lärmunterdrückung für Anrufe aktivieren</string>
+    <string name="noise_suppression_title">Rauschunterdrückung</string>
+    <string name="noise_suppression_summary">Aktiviere die Rauschunterdrückung für Anrufe</string>
+    <!-- End Noise suppression -->
 
-    <!-- Show ssn label -->
-    <string name="show_ssn_label">Ereignis-Benachrichtigung</string>
-    <string name="show_ssn_summary">Benachrichtigungen für verschiedene Anrufereignisse anzeigen</string>
 
-    <!-- Change mobile network -->
-    <string name="perm_change_mobile_network">Netzmodus wechseln (2G/3G)</string>
-    <string name="perm_change_mobile_network_desc">Anwendungen mit dieser Berechtigung können jederzeit zwischen 2G- und 3G-Netz wechseln</string>
-
-    <!-- National data roaming -->
+    <!-- Mobile network settings screen, setting check box name -->
     <string name="national_roaming">Nationales Daten-Roaming</string>
+    <!-- Mobile network settings screen, setting summary text when check box is selected -->
     <string name="national_roaming_enable">Bei nationalem Roaming mit Datendienst verbinden</string>
+    <!-- Mobile network settings screen, setting summary text when check box is clear -->
     <string name="national_roaming_disable">Bei nationalem Roaming mit Datendienst verbinden</string>
 
-    <!-- **** CYANOGENMOD EDITS END **** -->
+    <!-- Setting title for the flip action setting. -->
+    <string name="flip_action_title">Kippfunktion</string>
+
+    <!-- Dialog title of the flip action setting. -->
+    <string name="flip_action_dialog_title">Gerät kippen nach\u2026</string>
+
+    <!-- Setting summary for the flip action setting. -->
+    <string name="flip_action_summary">Das Kippen des Telefons nach unten wird <xliff:g id="action">%s</xliff:g></string>
+    <!-- Entries listed in the setting for the flip action. -->
+    <string-array name="flip_action_setting_entries">
+        <item>keine Aktion ausführen</item>
+        <item>das Telefon stummschalten</item>
+        <item>das Gespräch ablehnen</item>
+    </string-array>
+
+    <!-- Summary texts for flip action. Must be ordered by numerical
+         value (do nothing = 0, mute = 1, dismiss = 2) -->
+    <string-array name="flip_action_summary_entries">
+        <item>keine Aktion ausführen</item>
+        <item>das Telefon stummschalten</item>
+        <item>das Gespräch ablehnen</item>
+    </string-array>
+
+        <!-- My Phone Number field -->
+    <string name="phone_number_label">Meine Telefonnummer</string>
+    <string name="phone_number_summary">Die Telefonnummer dieses Geräts festlegen</string>
+
 </resources>
