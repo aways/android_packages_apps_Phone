@@ -596,6 +596,7 @@ public class NotificationMgr implements CallerInfoAsyncQuery.OnQueryCompleteList
         if (Settings.System.getInt(mContext.getContentResolver(),
                Settings.System.MISSED_CALL_BREATH, 0) == 1) {
              builder.setSmallIcon(R.drawable.stat_notify_missed_call_breath)
+                .setNumber(mMissedCalls.size())
                 .setTicker(mContext.getString(R.string.notification_missedCallTicker, callName))
                 .setWhen(date)
                 .setContentIntent(PendingIntent.getActivity(mContext, 0, callLogIntent, 0))
@@ -603,6 +604,7 @@ public class NotificationMgr implements CallerInfoAsyncQuery.OnQueryCompleteList
                 .setDeleteIntent(createClearMissedCallsIntent());
            } else {
              builder.setSmallIcon(android.R.drawable.stat_notify_missed_call)
+                .setNumber(mMissedCalls.size())
                 .setTicker(mContext.getString(R.string.notification_missedCallTicker, callName))
                 .setWhen(date)
                 .setContentIntent(PendingIntent.getActivity(mContext, 0, callLogIntent, 0))
